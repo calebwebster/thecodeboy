@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.20)
 project(thecodeboy)
 add_executable(main main.c)
 target_include_directories(main PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/deps/curl/include)

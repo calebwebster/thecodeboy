@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 static size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream) {
   return size * nmemb;
@@ -47,7 +48,7 @@ int main(void) {
     return 1;
   }
 
-  static char *channel_name = "tests";
+  static char *channel_name = "test";
   static char *message = "The Code Boy is mid as hell: "
                          "\nhttps://open.spotify.com/artist/"
                          "21BMl27VlpO43ZudKAl0L8?si=2k5IEhEQTw6VB-IYuhKlsQ";
