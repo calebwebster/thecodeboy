@@ -51,7 +51,7 @@ int main(void) {
   static char *channel_name = "test";
   static char *message = "The Code Boy is mid as hell: "
                          "\nhttps://open.spotify.com/artist/"
-                         "21BMl27VlpO43ZudKAl0L8?si=2k5IEhEQTw6VB-IYuhKlsQ";
+                         "21BMl27VlpO43ZudKAl0L8";
 
   while (1) {
     res = ntfy(curl, channel_name, message);
@@ -71,7 +71,7 @@ int main(void) {
              "as hell\n",
              buffer);
 
-      sleep(30 * 60);
+      sleep(60 * 60);
     }
   }
 
