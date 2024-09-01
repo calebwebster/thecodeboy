@@ -1,8 +1,12 @@
-FROM alpine:3.14
-RUN mkdir thecodeboy
-RUN apk add --no-cache build-base
-RUN apk add --no-cache curl-dev
-COPY ./main.c /thecodeboy
-RUN gcc /thecodeboy/main.c -lcurl -o thecodeboy/main
+FROM alpine:latest
+RUN apk add build-base
+RUN apk add curl-dev=8.9.1-r1
+COPY . /thecodeboy
 WORKDIR /thecodeboy
-ENTRYPOINT ["./main"]
+RUN mkdir build
+RUN gcc main.c -lcurl -o build/main
+
+FROM curlimages/curl:8.9.1
+COPY --from=0 /thecodeboy/build /thecodeboy/build
+WORKDIR /thecodeboy/build
+CMD ["./main"]
